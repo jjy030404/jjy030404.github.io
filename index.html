@@ -5,21 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC Streets: Stand Still and Become Everyone’s Obstacle</title>
     <style>
+        /* Load Gotham font */
         @font-face {
             font-family: 'Gotham';
-            src: url('https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.woff2') format('woff2'),
-                 url('https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.woff') format('woff');
-            font-weight: bolder;
+            src: url('path-to-your-font/gotham.woff2') format('woff2'),
+                 url('path-to-your-font/gotham.woff') format('woff');
+            font-weight: normal;
             font-style: normal;
+        }
+
+        body {
+            font-family: 'Gotham', Arial, sans-serif;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        #info-box {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+
+        #info-box img {
+            max-width: 300px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #info-box p {
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-<h1>This is 24th St</h1>
+    <h1>NYC Streets: Stand Still and Become Everyone’s Obstacle</h1>
+    <p>Click on the map to explore different places in NYC, but remember, standing still is not an option!</p>
 
-<p>My first paragraph.</p>
-<strong>HTML is harder than I thought.</strong>
+    <div id="map"></div>
+
+    <div id="info-box">
+        <img id="location-img" src="" alt="Location Image">
+        <p id="location-description"></p>
+    </div>
+
+    <script>
+        // Initialize Google Map
+        function initMap() {
+            const nyc = { lat: 40.7128, lng: -74.0060 }; // 뉴욕 좌표
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: nyc
+            });
+
+            // Define location data
+            const locations = [
+                {
+                    position: { lat: 40.7580, lng: -73.9855 },
+                    image: 'https://example.com/times_square.jpg',
+                    description: 'Times Square: The iconic heart of NYC.'
+                },
+                {
+                    position: { lat: 40.730610, lng: -73.935242 },
+                    image: 'https://example.com/east_village.jpg',
+                    description: 'East Village: The hub of culture and art.'
+                }
+            ];
+
+            locations.forEach(location => {
+                const marker = new google.maps.Marker({
+                    position: location.position,
+                    map: map
+                });
+
+                marker.addListener('click', () => {
+                    showInfo(location);
+                });
+            });
+        }
+
+        // Show info when location is clicked
+        function showInfo(location) {
+            const infoBox = document.getElementById('info-box');
+            const locationImg = document.getElementById('location-img');
+            const locationDescription = document.getElementById('location-description');
+
+            locationImg.src = location.image;
+            locationDescription.textContent = location.description;
+
+            infoBox.style.display = 'block';
+        }
+    </script>
+
+    <!-- Load the Google Maps JavaScript API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
 
 </body>
 </html>
