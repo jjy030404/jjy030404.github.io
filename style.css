@@ -1,8 +1,8 @@
 
 body {
-    font-family: Arial, sans-serif; /* Using a common default font */
-    background-color: #1C1C1C; /* Dark charcoal for a NYC nighttime feel */
-    color: #E0E0E0; /* Light gray text for contrast */
+    font-family: Arial, sans-serif; 
+    background-color: #1C1C1C; 
+    color: #E0E0E0; 
     margin: 0;
     padding: 0;
     text-align: center;
@@ -10,10 +10,10 @@ body {
 
 
 header {
-    background-color: #333333; /* Darker gray to blend with the NYC atmosphere */
+    background-color: #333333; 
     padding: 20px;
     text-align: center;
-    color: #FFD700; /* Muted gold to mimic city lights and taxi cabs */
+    color: #FFD700; 
 }
 
 
@@ -28,11 +28,11 @@ main {
 
 .map-container {
     margin-bottom: 20px;
-    border: 2px solid #FFD700; /* Add a subtle gold border for accent */
+    border: 2px solid #FFD700; 
 }
 
 .street-selection {
-    background-color: #2E2E2E; /* Slightly lighter dark background for contrast */
+    background-color: #2E2E2E; 
     padding: 15px;
     border-radius: 5px;
     text-align: center;
@@ -49,8 +49,8 @@ main {
 
 
 button {
-    background-color: #FFD700; /* Muted gold for button background */
-    color: #1C1C1C; /* Dark text for contrast */
+    background-color: #FFD700; 
+    color: #1C1C1C; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -59,15 +59,15 @@ button {
 }
 
 button:hover {
-    background-color: #E0E0E0; /* Light gray for a hover effect */
+    background-color: #E0E0E0; 
 }
 
 /* Footer styles */
 footer {
-    background-color: #333333; /* Darker gray for consistency */
+    background-color: #333333; 
     text-align: center;
     padding: 10px;
-    color: #E0E0E0; /* Light gray text */
+    color: #E0E0E0; 
     position: fixed;
     width: 100%;
     bottom: 0;
