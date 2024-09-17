@@ -62,13 +62,3 @@ button:hover {
     background-color: #E0E0E0; 
 }
 
-/* Footer styles */
-footer {
-    background-color: #333333; 
-    text-align: center;
-    padding: 10px;
-    color: #E0E0E0; 
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
