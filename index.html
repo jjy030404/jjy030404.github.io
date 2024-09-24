@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Streets: Stand Still and Become Everyone’s Obstacle</title>
+    <title>NYC Streets</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>NYC Street: Stop and Become Everyone's Obstacle</h1>
+        <h1>NYC Streets</h1>
     </header>
     
     <main>
@@ -27,49 +27,19 @@
             <h2>Select a Street:</h2>
             <ul>
                 <li>
-                    <button onclick="showMedia('24th St', ['https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/24th%20st%20vid%20(1).mp4'], 'video')">24th St</button>
+                    <a href="24th_street.html"><button>24th St</button></a>
                 </li>
                 <li>
-                    <button onclick="showMedia('3rd Ave', ['https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/3rd%20ave%20(1).jpg'], 'image')">3rd Ave</button>
+                    <a href="3rd_ave.html"><button>3rd Ave</button></a>
                 </li>
                 <li>
-                    <button onclick="showMedia('5th Ave', ['https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/5th%20ave%20(1).jpg'], 'image')">5th Ave</button>
+                    <a href="5th_ave.html"><button>5th Ave</button></a>
                 </li>
                 <li>
-                    <button onclick="showMedia('8th Ave', ['https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/8th%20ave%20(1).jpg', 'https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/8th%20ave%20(2).jpg'], 'image')">8th Ave</button>
+                    <a href="8th_ave.html"><button>8th Ave</button></a>
                 </li>
             </ul>
         </div>
-
-        <div class="media-container">
-            <h3 id="media-title"></h3>
-            <div id="media-content"></div>
-        </div>
     </main>
-
-    <script>
-        function showMedia(title, urls, type) {
-            document.getElementById('media-title').innerText = title;
-            let mediaContent = document.getElementById('media-content');
-            mediaContent.innerHTML = '';
-
-            if (type === 'image') {
-                urls.forEach(url => {
-                    let img = document.createElement('img');
-                    img.src = url;
-                    img.width = 600;
-                    img.style.marginBottom = "20px"; /* 이미지 사이 여백 추가 */
-                    mediaContent.appendChild(img);
-                });
-            } else if (type === 'video') {
-                let video = document.createElement('video');
-                video.src = urls[0];
-                video.width = 600;
-                video.controls = true;
-                mediaContent.appendChild(video);
-            }
-        }
-    </script>
-
 </body>
 </html>
