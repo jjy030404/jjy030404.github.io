@@ -27,22 +27,39 @@
             <h2>Select a Street:</h2>
             <ul>
                 <li>
-                    <a href="24th_street.html"><button>24th St</button></a>
+                    <a href="#"><button onclick="showMedia('24th St', 'https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/24th%20st%20vid%20(1).mp4', 'video')">24th St</button></a>
                 </li>
                 <li>
-                    <a href="3rd_ave.html"><button>3rd Ave</button></a>
-                </li>
-                <li>
-                    <a href="5th_ave.html"><button>5th Ave</button></a>
-                </li>
-                <li>
-                    <a href="8th_ave_1.html"><button>8th Ave 1</button></a>
-                </li>
-                <li>
-                    <a href="8th_ave_2.html"><button>8th Ave 2</button></a>
+                    <a href="#"><button onclick="showMedia('3rd Ave', 'https://raw.githubusercontent.com/jjy030404/jjy030404.github.io/main/3rd%20ave%20(1).jpg', 'image')">3rd Ave</button></a>
                 </li>
             </ul>
         </div>
+
+        <div class="media-container">
+            <h3 id="media-title"></h3>
+            <div id="media-content"></div>
+        </div>
     </main>
+
+    <script>
+        function showMedia(title, url, type) {
+            document.getElementById('media-title').innerText = title;
+            let mediaContent = document.getElementById('media-content');
+            mediaContent.innerHTML = '';
+
+            if (type === 'image') {
+                let img = document.createElement('img');
+                img.src = url;
+                img.width = 600;
+                mediaContent.appendChild(img);
+            } else if (type === 'video') {
+                let video = document.createElement('video');
+                video.src = url;
+                video.width = 600;
+                video.controls = true;
+                mediaContent.appendChild(video);
+            }
+        }
+    </script>
 </body>
 </html>
