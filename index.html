@@ -27,51 +27,22 @@
             <h2>Select a Street:</h2>
             <ul>
                 <li>
-                    <button onclick="updateStreetMedia('https://github.com/jjy030404/jjy030404.github.io/raw/main/24th%20st%20vid%20(1)', '24th Street is a well-known street in Manhattan, running east-west through some vibrant neighborhoods. This video captures the daily hustle and bustle on 24th St.')">
-                        24th St Video
-                    </button>
+                    <a href="24th_street.html"><button>24th St</button></a>
                 </li>
                 <li>
-                    <button onclick="updateStreetMedia('https://github.com/jjy030404/jjy030404.github.io/raw/main/3rd%20ave%20(1)', '3rd Avenue is one of the major north-south streets in Manhattan. It is home to many shops, restaurants, and iconic buildings.')">
-                        3rd Ave Image
-                    </button>
+                    <a href="3rd_ave.html"><button>3rd Ave</button></a>
                 </li>
                 <li>
-                    <button onclick="updateStreetMedia('https://github.com/jjy030404/jjy030404.github.io/raw/main/5th%20ave%20(1)', '5th Avenue is perhaps the most famous street in Manhattan, known for its luxury stores and iconic landmarks such as the Empire State Building.')">
-                        5th Ave Image
-                    </button>
+                    <a href="5th_ave.html"><button>5th Ave</button></a>
                 </li>
                 <li>
-                    <button onclick="updateStreetMedia('https://github.com/jjy030404/jjy030404.github.io/raw/main/8th%20ave%20(1)', '8th Avenue runs through the heart of Manhattan, extending from the West Village up to Central Park and beyond. It is lined with various businesses and attractions.')">
-                        8th Ave Image 1
-                    </button>
+                    <a href="8th_ave_1.html"><button>8th Ave 1</button></a>
                 </li>
                 <li>
-                    <button onclick="updateStreetMedia('https://github.com/jjy030404/jjy030404.github.io/raw/main/8th%20ave%20(2)', 'Another view of 8th Avenue, showing a different part of the avenue where it intersects with various key streets in the city.')">
-                        8th Ave Image 2
-                    </button>
+                    <a href="8th_ave_2.html"><button>8th Ave 2</button></a>
                 </li>
             </ul>
-
-            <!-- Media container to display selected street media (image or video) -->
-            <div class="media-container">
-                <iframe id="streetMedia" src="" width="600" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
-            </div>
-
-            <!-- Street description -->
-            <div id="description" style="margin-top: 20px; color: #FFD700;">
-                <!-- This will display the description for the selected street -->
-            </div>
         </div>
     </main>
-
-    <script>
-        // Function to update media and description
-        function updateStreetMedia(mediaUrl, description) {
-            document.getElementById('streetMedia').src = mediaUrl;
-            document.getElementById('description').innerText = description;
-        }
-    </script>
-
 </body>
 </html>
