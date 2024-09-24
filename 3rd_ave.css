@@ -1,0 +1,22 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fff8dc;
+    color: #2f4f4f;
+    text-align: center;
+}
+
+header {
+    background-color: #2f4f4f;
+    padding: 20px;
+    color: #fff;
+}
+
+.media-container {
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #8b4513;
+}
