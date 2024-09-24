@@ -1,0 +1,22 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #f5f5f5;
+    color: #4b0082;
+    text-align: center;
+}
+
+header {
+    background-color: #4b0082;
+    padding: 20px;
+    color: #fff;
+}
+
+.media-container {
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #4b0082;
+}
