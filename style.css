@@ -1,19 +1,12 @@
-@font-face {
-    font-family: 'Wasted Vindey';
-    src: url('fonts/Wasted-Vindey.ttf') format('truetype');
-    font-weight: bold;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif; /* fallback font */
 }
 
 body {
-    background-color: #f0f2f5; /* Modern light gray background */
-    color: #333; /* Dark gray for text */
+    background-color: #f0f2f5;
+    color: #333;
 }
 
 .page-title {
@@ -40,14 +33,16 @@ body {
 
 .background-map {
     width: 100%;
-    height: auto; /* Ensures the image maintains its aspect ratio */
+    height: auto;
     object-fit: cover;
     filter: grayscale(20%);
 }
 
-/* Interactive areas */
-.interactive-area {
+/* Interactive area for 24th St and 5th Ave */
+[data-location="24th St and 5th Ave"] {
     position: absolute;
+    top: 67%; /* Estimate based on the vertical placement of 24th St */
+    left: 45%; /* Estimate based on horizontal placement of 5th Ave */
     width: 40px;
     height: 40px;
     background-color: rgba(0, 122, 255, 0.4);
@@ -61,21 +56,5 @@ body {
 }
 
 .selected {
-    background-color: rgba(255, 165, 0, 0.7); /* Highlighted color when selected */
-}
-
-/* Example positioning for specific points */
-[data-location="5th Ave and 42nd St"] {
-    top: 40%;
-    left: 30%;
-}
-
-[data-location="Broadway and 34th St"] {
-    top: 45%;
-    left: 35%;
-}
-
-[data-location="7th Ave and 28th St"] {
-    top: 50%;
-    left: 40%;
+    background-color: rgba(255, 165, 0, 0.7);
 }
