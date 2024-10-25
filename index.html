@@ -3,43 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Streets</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Interactive Manhattan Map</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>NYC Streets: Stop and Become Everyone's Obstacle</h1>
-    </header>
-    
-    <main>
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24128.42509134295!2d-74.00913628447928!3d40.730610094513485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af18b5b0b5%3A0x605d408e35297d8f!2sManhattan%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1694946548280!5m2!1sen!2sus" 
-                width="600" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
-        </div>
-
-        <div class="street-selection">
-            <h2>Select a Street:</h2>
-            <ul>
-                <li>
-                    <a href="24th_street.html"><button>24th St</button></a>
-                </li>
-                <li>
-                    <a href="3rd_ave.html"><button>3rd Ave</button></a>
-                </li>
-                <li>
-                    <a href="5th_ave.html"><button>5th Ave</button></a>
-                </li>
-                <li>
-                    <a href="8th_ave.html"><button>8th Ave</button></a>
-                </li>
-            </ul>
-        </div>
-    </main>
+    <h1 class="page-title">NYC streets: stop and being obstacle of everyone</h1>
+    <div class="map-container">
+        <img src="manhattan-map.jpg" alt="Manhattan Map" class="background-map">
+        <!-- Example interactive area for 5th Ave and 42nd St -->
+        <div class="interactive-area" data-location="5th Ave and 42nd St"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
