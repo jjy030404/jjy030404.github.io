@@ -1,114 +1,66 @@
-body {
-    font-family: 'Lato', sans-serif;
-    background-color: #F5F5F5;
-    color: #2C2C2C; 
+@font-face {
+    font-family: 'Wasted Vindey';
+    src: url('fonts/Wasted-Vindey.ttf') format('truetype');
+    font-weight: normal;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* fallback font */
+}
+
+body {
+    background-color: #f0f2f5; /* Modern light gray background */
+    color: #333; /* Dark gray for text */
+}
+
+.page-title {
+    font-family: 'Wasted Vindey', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222; /* Slightly darker for contrast */
     text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
 }
-
-header {
-    background-color: #1C1C1C; 
-    padding: 30px;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 2.5em;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 40px;
-}
-
 
 .map-container {
-    margin-bottom: 40px;
-    border: 2px solid #BEBEBE;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* 거리 선택 컨테이너 */
-.street-selection {
-    background-color: #E5E5E5; 
-    padding: 25px;
-    border-radius: 8px;
-    text-align: center;
-    width: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
+.background-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%); /* Adds a slightly desaturated look */
 }
 
-.street-selection ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.street-selection li {
-    margin: 20px 0;
-}
-
-button {
-    background-color: #333333;
-    color: #FFFFFF; 
-    border: none;
-    padding: 15px 25px;
+.interactive-area {
+    position: absolute;
+    width: 40px;  /* Adjust size as needed */
+    height: 40px;
+    background-color: rgba(0, 122, 255, 0.4);  /* Modern blue with transparency */
+    border-radius: 50%; /* Rounded shape */
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 1.2em;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: transform 0.2s ease; /* Smooth scaling effect */
 }
 
-button:hover {
-    background-color: #4F4F4F; 
-    transform: scale(1.02); 
+.interactive-area:hover {
+    transform: scale(1.2); /* Slight scale-up effect on hover */
 }
 
-.media-container {
-    width: 65%;
-    margin-top: 40px;
-    padding: 30px;
-    background-color: #FFFFFF; 
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    border: 1px solid #DCDCDC;
-}
-
-.media-container h3 {
-    font-size: 1.8em;
-    color: #2C2C2C; 
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-/* 미디어 설명 */
-.description {
-    color: #5C5C5C; 
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-
-.media-container img,
-.media-container video {
-    max-width: 100%;
-    border-radius: 8px;
-    border: 1px solid #BEBEBE; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
-}
-
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #1C1C1C; /* 짙은 회색/검은색 */
-    color: #FFFFFF; /* 흰색 텍스트 */
-    font-size: 1em;
+/* Example positioning for specific points */
+[data-location="5th Ave and 42nd St"] {
+    top: 40%;   /* Set the exact position on the map */
+    left: 30%;  /* Set the exact position on the map */
 }
