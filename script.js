@@ -1,3 +1,13 @@
+document.addEventListener("mousemove", (event) => {
+    const scrollThreshold = 100; // Distance from bottom in pixels to start scrolling
+    const scrollSpeed = 5; // Adjust this to control scroll speed
+
+    // If mouse is near the bottom of the window, scroll down
+    if (window.innerHeight - event.clientY < scrollThreshold) {
+        window.scrollBy(0, scrollSpeed);
+    }
+});
+
 document.querySelectorAll('.interactive-area').forEach(area => {
     area.addEventListener('click', (event) => {
         const location = event.target.dataset.location;
