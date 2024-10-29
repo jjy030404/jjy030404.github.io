@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Streets: Explore Manhattan's Corners</title>
+    <title>NYC streets: stop and being obstacle of everyone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="page-title">NYC Streets: A Walk Through Manhattan</h1>
-    
-    <!-- Sidebar for navigation -->
-    <nav class="sidebar">
-        <h2>Explore NYC</h2>
-        <ul>
-            <li><a href="5th_ave.html">24th St & 5th Ave</a></li>
-            <li><a href="3rd_ave.html">24th St & 3rd Ave</a></li>
-            <li><a href="8th_ave.html">24th St & 8th Ave</a></li>
-            <li><a href="16th_st_5th_ave.html">16th St & 5th Ave</a></li>
-            <li><a href="16th_st_3rd_ave.html">16th St & 3rd Ave</a></li>
-        </ul>
-    </nav>
-
+    <h1 class="page-title">NYC streets: stop and being obstacle of everyone</h1>
     <div class="map-container">
         <img src="port-auth-downtn-manhattan-airport-map-0.jpg" alt="Manhattan Map" class="background-map">
-
-        <!-- Interactive areas with tooltips -->
+        
+        <!-- Interactive areas with links to HTML pages -->
         <div class="interactive-area" data-location="24th St and 5th Ave" data-link="5th_ave.html"></div>
         <div class="interactive-area" data-location="24th St and 3rd Ave" data-link="3rd_ave.html"></div>
         <div class="interactive-area" data-location="24th St and 8th Ave" data-link="8th_ave.html"></div>
         <div class="interactive-area" data-location="16th St and 5th Ave" data-link="16th_st_5th_ave.html"></div>
         <div class="interactive-area" data-location="16th St and 3rd Ave" data-link="16th_st_3rd_ave.html"></div>
     </div>
-    
+
+    <!-- Zoom buttons -->
+    <div class="zoom-buttons">
+        <button id="zoom-in">Zoom In</button>
+        <button id="zoom-out">Zoom Out</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
