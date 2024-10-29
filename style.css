@@ -1,74 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap'); /* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Slab:wght@700&display=swap');
 
 /* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Arial, sans-serif; /* Modern, bold, geometric font */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* Body Styling */
 body {
     background-color: #f0f2f5;
-    color: #333;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto; /* Enables both horizontal and vertical scrolling */
     scroll-behavior: smooth;
+    display: flex;
 }
 
-/* Page Title */
+/* Page Title Styling */
 .page-title {
-    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 32px;
     font-weight: 700;
-    color: #222;
+    color: #333;
     text-align: center;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Title */
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 24px;
-        padding: 10px;
-    }
+/* Sidebar Navigation Styling */
+.sidebar {
+    width: 200px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 8px 0;
+    display: block;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #87ceeb;
+}
+
+/* Map Container Styling */
 .map-container {
     position: relative;
     width: 200vw; /* Extended width for horizontal scroll */
-    height: 100vh;
-    overflow: hidden;
-    animation: zoomEffect 2.5s ease forwards;
-    transform-origin: center;
+    height: 200vh; /* Extended height for vertical scroll */
+    padding-left: 220px; /* Space for the sidebar */
 }
 
 .background-map {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: grayscale(20%);
+    object-fit: contain; /* Keeps full map visible */
 }
 
-/* Zoom Effect Animation */
-@keyframes zoomEffect {
-    from {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Interactive Area */
+/* Interactive Area Styling */
 .interactive-area {
     position: absolute;
     width: 40px;
@@ -77,18 +87,34 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
-    will-change: transform, background-color;
 }
 
 .interactive-area:hover {
     transform: scale(1.2);
+    background-color: rgba(0, 122, 255, 0.6);
 }
 
-.selected {
-    background-color: rgba(255, 165, 0, 0.7);
+.interactive-area::after {
+    content: attr(data-location);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
 }
 
-/* Positioning for 24th St and other streets */
+.interactive-area:hover::after {
+    opacity: 1;
+}
+
+/* Positioning for Interactive Areas */
 [data-location="24th St and 5th Ave"] {
     top: 67%;
     left: 45%;
@@ -104,7 +130,6 @@ body {
     left: 40%;
 }
 
-/* New positioning for 16th St options */
 [data-location="16th St and 5th Ave"] {
     top: 80%;
     left: 45%;
