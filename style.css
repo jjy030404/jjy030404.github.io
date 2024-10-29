@@ -79,3 +79,32 @@ body {
     top: 67%;
     left: 40%;
 }
+/* Center the map and make it smaller to fit the screen */
+.map-container {
+    position: relative;
+    width: 80vw; /* Reduced width */
+    height: 80vh; /* Reduced height */
+    overflow: hidden;
+    margin: 0 auto; /* Center horizontally */
+    transform-origin: center;
+    animation: zoomIn 1.5s ease-out forwards; /* Zoom-in effect */
+}
+
+.background-map {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(20%);
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1.5); /* Start zoomed-in */
+        opacity: 0; /* Fade in */
+    }
+    100% {
+        transform: scale(1); /* Normal scale */
+        opacity: 1;
+    }
+}
