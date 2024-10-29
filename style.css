@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'Wasted Vindey';
+    src: url('fonts/Wasted-Vindey.ttf') format('truetype');
+    font-weight: bold;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif; /* fallback font */
 }
 
 body {
@@ -38,11 +45,9 @@ body {
     filter: grayscale(20%);
 }
 
-/* Interactive area for 24th St and 5th Ave */
-[data-location="24th St and 5th Ave"] {
+/* Interactive areas */
+.interactive-area {
     position: absolute;
-    top: 67%; /* Estimate based on the vertical placement of 24th St */
-    left: 45%; /* Estimate based on horizontal placement of 5th Ave */
     width: 40px;
     height: 40px;
     background-color: rgba(0, 122, 255, 0.4);
@@ -57,4 +62,20 @@ body {
 
 .selected {
     background-color: rgba(255, 165, 0, 0.7);
+}
+
+/* Positioning for each interactive point */
+[data-location="24th St and 5th Ave"] {
+    top: 67%;
+    left: 45%;
+}
+
+[data-location="24th St and 3rd Ave"] {
+    top: 67%;
+    left: 50%;
+}
+
+[data-location="24th St and 8th Ave"] {
+    top: 67%;
+    left: 40%;
 }
