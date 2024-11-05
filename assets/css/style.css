@@ -1,50 +1,47 @@
-/* Basic resets and body styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-/* Header and Navigation Bar */
-header {
-    background-color: #222;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #bbbbbb;
-}
-
-/* Interactive Map styling */
-#map {
+/* Opening page styling */
+.opening-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+#main-title {
+    font-size: 2.5em;
+    color: #333;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Walking shadow effect */
+.hover-shadow:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%) scaleX(2) rotate(10deg);
+    animation: shadow-walk 0.5s infinite alternate;
+}
+
+@keyframes shadow-walk {
+    0% { transform: translate(-50%, -50%) scaleX(1.5) rotate(10deg); }
+    100% { transform: translate(-50%, -50%) scaleX(1.8) rotate(-10deg); }
+}
+
+/* Start button styling */
+.start-button {
     margin-top: 20px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-    #map {
-        height: 80vh;
-    }
-}
-
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    transition: backg
