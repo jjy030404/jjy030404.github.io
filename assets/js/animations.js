@@ -4,5 +4,5 @@ function startJourney() {
 
     setTimeout(() => {
         window.location.href = "map.html";
-    }, 2000);
+    }, 2000); // Redirect after 2 seconds
 }
