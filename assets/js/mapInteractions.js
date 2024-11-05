@@ -1,6 +1,7 @@
+// Initialize the Leaflet map
 const map = L.map('map').setView([40.7128, -74.0060], 13);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('assets/leaflet/leaflet.js', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
@@ -32,20 +33,17 @@ const locations = [
     }
 ];
 
-function highlightStreet(marker, color) {
-    marker.on('mouseover', function() {
-        this.getElement().style.color = color;
-    });
-    marker.on('mouseout', function() {
-        this.getElement().style.color = '';
-    });
-}
-
+// Adds interactivity to each marker
 locations.forEach(location => {
     const marker = L.marker(location.coords).addTo(map)
         .bindPopup(`<b>${location.name}</b><br>${location.description}<br><a href="${location.link}" target="_blank">Learn more</a>`);
+    
+    // Highlight street on hover
+    marker.on('mouseover', function() {
+        this.openPopup();
+    });
 
-    highlightStreet(marker, 'red');
+    // Display street details when clicked
     marker.on('click', function() {
         this.openPopup();
     });
