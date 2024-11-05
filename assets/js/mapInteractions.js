@@ -37,7 +37,7 @@ const locations = [
 
 // Define a custom red icon for the markers
 const customIcon = L.icon({
-    iconUrl: 'assets/img/marker-icon-2x-red.png', // Path to the custom red icon
+    iconUrl: 'https://jjy030404.github.io/marker-icon-2x-red.png', // Direct path to your custom red icon
     iconSize: [25, 41], // Size for the 2x icon (adjust if needed)
     iconAnchor: [12, 41], // Anchor the icon bottom center
     popupAnchor: [1, -34], // Position the popup above the icon
@@ -46,7 +46,7 @@ const customIcon = L.icon({
     shadowAnchor: [12, 41]
 });
 
-// Add markers for each location with custom icon and interactive features
+// Add markers with custom icon and interactive features
 locations.forEach(location => {
     const marker = L.marker(location.coords, { icon: customIcon }).addTo(map)
         .bindPopup(`<b>${location.name}</b><br>${location.description}<br><a href="${location.link}" target="_blank">Learn more</a>`);
