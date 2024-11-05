@@ -1,11 +1,13 @@
 // Initialize the Leaflet map
 const map = L.map('map').setView([40.7128, -74.0060], 13);
 
-L.tileLayer('assets/leaflet/leaflet.js', {
+// Load the tile layer from OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// Define locations with coordinates, descriptions, and links to their HTML pages
 const locations = [
     {
         name: "3rd Ave",
@@ -33,9 +35,20 @@ const locations = [
     }
 ];
 
-// Adds interactivity to each marker
+// Define a custom red icon for the markers
+const customIcon = L.icon({
+    iconUrl: 'assets/img/marker-icon-2x-red.png', // Path to the custom red icon
+    iconSize: [25, 41], // Size for the 2x icon (adjust if needed)
+    iconAnchor: [12, 41], // Anchor the icon bottom center
+    popupAnchor: [1, -34], // Position the popup above the icon
+    shadowUrl: 'assets/leaflet/images/marker-shadow.png', // Optional: Leaflet's default shadow
+    shadowSize: [41, 41],
+    shadowAnchor: [12, 41]
+});
+
+// Add markers for each location with custom icon and interactive features
 locations.forEach(location => {
-    const marker = L.marker(location.coords).addTo(map)
+    const marker = L.marker(location.coords, { icon: customIcon }).addTo(map)
         .bindPopup(`<b>${location.name}</b><br>${location.description}<br><a href="${location.link}" target="_blank">Learn more</a>`);
     
     // Highlight street on hover
