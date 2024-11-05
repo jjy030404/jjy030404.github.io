@@ -8,32 +8,41 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Stylish Navigation Bar -->
+    <!-- Stylish Navigation Bar with Dropdown -->
     <header>
         <nav>
-            <a href="#entry">Entry</a>
-            <a href="#about">About this Website</a>
-            <a href="#contact">Contact Me</a>
+            <div class="dropdown">
+                <a href="#entry" class="dropdown-toggle">Entry</a>
+                <div class="dropdown-menu">
+                    <a href="3rd_ave.html">3rd Ave</a>
+                    <a href="8th_ave.html">8th Ave</a>
+                    <a href="24th_street.html">24th St</a>
+                    <a href="broadway.html">Broadway</a>
+                </div>
+            </div>
+            <a href="#about" onclick="toggleSection('about')">About this Website</a>
+            <a href="#contact" onclick="toggleSection('contact')">Contact Me</a>
         </nav>
     </header>
 
     <!-- Map Container -->
     <div id="map"></div>
 
-    <!-- About and Contact Sections -->
-    <section id="about">
+    <!-- Sections initially hidden -->
+    <section id="about" style="display: none;">
         <h2>About this Website</h2>
         <p>This website is all about bringing NYC’s streets alive, giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="display: none;">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:jjy030404@gmail.com">jjy030404@gmail.com</a></p>
         <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
     </section>
 
-    <!-- Local Leaflet JavaScript and Custom Script -->
+    <!-- Leaflet JavaScript and Custom Interaction Script -->
     <script src="leaflet.js"></script>
     <script src="assets/js/mapInteractions.js"></script>
+    <script src="assets/js/toggleSections.js"></script>
 </body>
 </html>
