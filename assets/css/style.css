@@ -43,11 +43,13 @@ body {
     color: #555;
 }
 
-/* Stylish Navigation with Dropdown */
+/* Navigation with Dropdown Menu positioned above the map */
 header {
     background-color: #222;
     padding: 10px;
     text-align: center;
+    position: relative; /* Ensure positioning context for z-index */
+    z-index: 10; /* Higher z-index to make header appear above the map */
 }
 
 nav a {
@@ -61,7 +63,7 @@ nav a:hover {
     color: #bbbbbb;
 }
 
-/* Dropdown menu styling */
+/* Dropdown menu styling with higher z-index */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -81,7 +83,7 @@ nav a:hover {
     top: 100%;
     left: 0;
     min-width: 120px;
-    z-index: 1;
+    z-index: 100; /* Ensure dropdown menu stays above the map */
 }
 
 .dropdown-menu a {
@@ -124,4 +126,10 @@ section {
 #about p, #contact p {
     font-size: 1.1em;
     color: #555;
+}
+
+/* Larger Popups for Map Markers */
+.leaflet-popup-content-wrapper {
+    font-size: 1.1em;
+    max-width: 300px; /* Increased width for readability */
 }
