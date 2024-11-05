@@ -10,10 +10,35 @@
     <div class="opening-container">
         <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
         <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
-        <p id="click-count"></p> <!-- Display click count -->
+        <p id="visitor-count"></p> <!-- Display visitor count -->
         <button onclick="startJourney()" class="start-button">Begin Journey</button>
     </div>
 
-    <script src="assets/js/animations.js"></script>
+    <script>
+        const COUNT_API_KEY = "jjy030404_github_button_clicks";
+
+        // Function to increment count on button click and display updated count
+        function startJourney() {
+            fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
+                })
+                .catch(error => console.error("Error updating click count:", error));
+
+            // Smooth transition
+            setTimeout(() => {
+                window.location.href = "map.html";
+            }, 2000);
+        }
+
+        // Display current count on page load
+        fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visitor-count').innerText = `Total clicks today: ${data.value}`;
+            })
+            .catch(error => console.error("Error fetching click count:", error));
+    </script>
 </body>
 </html>
