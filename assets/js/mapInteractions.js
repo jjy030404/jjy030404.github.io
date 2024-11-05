@@ -37,11 +37,11 @@ const locations = [
 
 // Define a custom red icon for the markers
 const customIcon = L.icon({
-    iconUrl: 'https://jjy030404.github.io/marker-icon-2x-red.png', // Direct path to your custom red icon
-    iconSize: [25, 41], // Size for the 2x icon (adjust if needed)
+    iconUrl: 'https://jjy030404.github.io/marker-icon-2x-red.png', // Direct path to the custom red icon
+    iconSize: [25, 41], // Size for the 2x icon
     iconAnchor: [12, 41], // Anchor the icon bottom center
     popupAnchor: [1, -34], // Position the popup above the icon
-    shadowUrl: 'assets/leaflet/images/marker-shadow.png', // Optional: Leaflet's default shadow
+    shadowUrl: 'marker-shadow.png', // Direct path to the Leaflet shadow image in the root directory
     shadowSize: [41, 41],
     shadowAnchor: [12, 41]
 });
