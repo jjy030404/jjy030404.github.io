@@ -11,7 +11,6 @@ body {
     color: #333;
 }
 
-/* Intro Page Styling */
 .opening-container {
     display: flex;
     flex-direction: column;
@@ -97,7 +96,6 @@ nav a:hover {
     background-color: #555;
 }
 
-/* Map styling with lower z-index to keep it behind the menu */
 #map {
     height: 80vh;
     width: 100%;
