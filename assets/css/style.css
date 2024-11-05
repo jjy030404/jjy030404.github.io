@@ -49,7 +49,7 @@ header {
     padding: 10px;
     text-align: center;
     position: relative; /* Ensure positioning context for z-index */
-    z-index: 10; /* Higher z-index to make header appear above the map */
+    z-index: 1000; /* Significantly higher z-index to ensure header is above the map */
 }
 
 nav a {
@@ -83,7 +83,7 @@ nav a:hover {
     top: 100%;
     left: 0;
     min-width: 120px;
-    z-index: 100; /* Ensure dropdown menu stays above the map */
+    z-index: 1001; /* Higher z-index to ensure dropdown menu stays above the map */
 }
 
 .dropdown-menu a {
@@ -97,11 +97,13 @@ nav a:hover {
     background-color: #555;
 }
 
-/* Map styling */
+/* Map styling with lower z-index to keep it behind the menu */
 #map {
     height: 80vh;
     width: 100%;
     margin-top: 20px;
+    position: relative;
+    z-index: 1; /* Lower z-index to ensure map stays behind the dropdown */
 }
 
 /* Section styling */
