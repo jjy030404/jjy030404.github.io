@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC: Stop and being everyone's obstacle</title>
-    <!-- Leaflet CSS for map styling -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-    <!-- Custom CSS for styling -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <a href="#8th-ave">8th Ave</a>
-            <a href="#5th-ave">5th Ave</a>
-            <a href="#24th-st">24th St</a>
-            <a href="#broadway">Broadway</a>
-        </nav>
-    </header>
+    <div class="opening-container">
+        <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
+        <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
+        <button onclick="startJourney()" class="start-button">Begin Journey</button>
+    </div>
 
-    <!-- Interactive Map Container -->
-    <div id="map"></div>
-
-    <!-- Leaflet.js for map interactivity -->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
 </body>
 </html>
