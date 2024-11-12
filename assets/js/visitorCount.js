@@ -11,4 +11,5 @@ function updateVisitorCount() {
         });
 }
 
+// 페이지 로드 시 방문자 수 업데이트
 document.addEventListener('DOMContentLoaded', updateVisitorCount);
