@@ -1,8 +1,13 @@
-window.addEventListener("load", () => {
-    const title = document.querySelector(".title");
-    title.classList.add("animate-title");
-});
+const button = document.getElementById("runaway-button");
+let runawayCount = 0; 
 
-function showMoreInfo() {
-    alert("5th Avenue isn’t just a shopping street; it’s a world-famous destination! You’ll find museums, restaurants, and even a library that’s a national landmark. So take your time to explore!");
-}
+button.addEventListener("mouseover", () => {
+    if (runawayCount < 3) { 
+        const x = Math.random() * (window.innerWidth - button.offsetWidth);
+        const y = Math.random() * (window.innerHeight - button.offsetHeight);
+        button.style.position = "absolute";
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+        runawayCount++;
+    }
+});
