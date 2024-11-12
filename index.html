@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC: Stop and being everyone's obstacle</title>
+    <title>NYC: Stop and be everyone's obstacle</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/animations.js" defer></script>
 </head>
 <body>
-    <div class="opening-container">
-        <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
-        <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
-        <p id="visitor-count"></p>
-        <button onclick="startJourney()" class="start-button">Begin Journey</button>
+    <div id="intro-container">
+        <div id="intro-content">
+            <h1>Welcome to NYC: Stop and be everyone's obstacle</h1>
+            <p>Explore New York City in a way you've never seen before. Our interactive map highlights the fun and chaos of the streets!</p>
+            <div id="visitor-count">
+                <span>Today's Visitors: </span><span id="visits">Loading...</span>
+            </div>
+        </div>
+        <script src="https://api.countapi.xyz/hit/jjy030404.github.io/visits?callback=cb"></script>
     </div>
-    <script src="assets/js/animations.js"></script>
+    <nav>
+        <ul>
+            <li><a href="map.html">Go to Map</a></li>
+        </ul>
+    </nav>
     <script src="assets/js/visitorCount.js"></script>
 </body>
 </html>
