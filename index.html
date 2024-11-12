@@ -10,35 +10,11 @@
     <div class="opening-container">
         <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
         <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
-        <p id="visitor-count"></p> <!-- Display visitor count -->
+        <p id="visitor-count"></p>
         <button onclick="startJourney()" class="start-button">Begin Journey</button>
     </div>
 
-    <!-- JSONP for CountAPI -->
-    <script>
-        function cb(response) {
-            document.getElementById('visitor-count').innerText = `Total visits today: ${response.value}`;
-        }
-
-        // Make the request to CountAPI
-        <script async src="https://api.countapi.xyz/hit/jjy030404_github_button_clicks/visits?callback=cb"></script>
-    </script>
-
-    <script>
-        // Function to increment the count on button click and display updated count
-        function startJourney() {
-            fetch(`https://api.countapi.xyz/hit/jjy030404_github_button_clicks/visits`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
-                })
-                .catch(error => console.error("Error updating click count:", error));
-
-            // Smooth transition
-            setTimeout(() => {
-                window.location.href = "map.html";
-            }, 2000);
-        }
-    </script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/visitorCount.js"></script>
 </body>
 </html>
