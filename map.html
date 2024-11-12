@@ -8,39 +8,37 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Stylish Navigation Bar with Dropdown -->
     <header>
         <nav>
             <div class="dropdown">
-                <a href="#entry" class="dropdown-toggle">Entry</a>
+                <a href="#" class="dropdown-toggle">Entry</a>
                 <div class="dropdown-menu">
-                    <a href="3rd_ave.html">3rd Ave</a>
-                    <a href="8th_ave.html">8th Ave</a>
-                    <a href="24th_street.html">24th St</a>
-                    <a href="broadway.html">Broadway</a>
+                    <a href="#3rd_ave">3rd Ave</a>
+                    <a href="#8th_ave">8th Ave</a>
+                    <a href="#24th_street">24th St</a>
+                    <a href="#broadway">Broadway</a>
+                    <a href="#5th_ave">5th Ave</a>
+                    <a href="#6th_ave">6th Ave</a>
+                    <a href="#7th_ave">7th Ave</a>
+                    <a href="#madison_ave">Madison Ave</a>
+                    <a href="#park_ave">Park Ave</a>
+                    <a href="#lexington_ave">Lexington Ave</a>
                 </div>
             </div>
             <a href="#about" onclick="toggleSection('about')">About this Website</a>
             <a href="#contact" onclick="toggleSection('contact')">Contact Me</a>
         </nav>
     </header>
-
-    <!-- Map Container -->
     <div id="map"></div>
-
-    <!-- Sections initially hidden -->
     <section id="about" style="display: none;">
         <h2>About this Website</h2>
-        <p>This website is all about bringing NYC’s streets alive, giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
+        <p>This site captures NYC streets with personality—interactive, informative, and just a bit chaotic to match the city's vibe.</p>
     </section>
-
     <section id="contact" style="display: none;">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:jjy030404@gmail.com">jjy030404@gmail.com</a></p>
         <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
     </section>
-
-    <!-- Leaflet JavaScript and Custom Interaction Script -->
     <script src="leaflet.js"></script>
     <script src="assets/js/mapInteractions.js"></script>
     <script src="assets/js/toggleSections.js"></script>
