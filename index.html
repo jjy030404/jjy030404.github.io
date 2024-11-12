@@ -7,32 +7,57 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="opening-container">
-        <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
-        <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
-        <p id="visitor-count"></p> <!-- Display visitor count -->
-        <button onclick="startJourney()" class="start-button">Begin Journey</button>
-    </div>
+    <header>
+        <nav>
+            <div class="dropdown">
+                <a href="#entry" class="dropdown-toggle">Entry</a>
+                <div class="dropdown-menu">
+                    <a href="3rd_ave.html">3rd Ave</a>
+                    <a href="8th_ave.html">8th Ave</a>
+                    <a href="24th_street.html">24th St</a>
+                    <a href="broadway.html">Broadway</a>
+                    <a href="5th_ave.html">5th Ave</a>
+                    <a href="madison_ave.html">Madison Ave</a>
+                    <a href="park_ave.html">Park Ave</a>
+                    <a href="lexington_ave.html">Lexington Ave</a>
+                    <a href="7th_ave.html">7th Ave</a>
+                    <a href="west_end_ave.html">West End Ave</a>
+                </div>
+            </div>
+            <a href="#about" onclick="toggleSection('about')">About this Website</a>
+            <a href="#contact" onclick="toggleSection('contact')">Contact Me</a>
+        </nav>
+    </header>
+
+    <div id="map"></div>
+
+    <section id="about" style="display: none;">
+        <h2>About this Website</h2>
+        <p>This website is all about bringing NYC’s streets alive, giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
+    </section>
+
+    <section id="contact" style="display: none;">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:jjy030404@gmail.com">jjy030404@gmail.com</a></p>
+        <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
+    </section>
 
     <script>
-        const COUNT_API_KEY = "jjy030404_github_daily_visitors"; // Unique identifier for daily visitors
+        const COUNT_API_KEY = "jjy030404_github_daily_visitors";
 
-        // Function to check if the user has been counted today
         function checkDailyVisitor() {
-            const today = new Date().toDateString(); // Get today's date as a string
+            const today = new Date().toDateString();
             const lastVisit = localStorage.getItem('lastVisitDate');
 
             if (lastVisit !== today) {
-                // First visit today, so increment the count
                 fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
-                        localStorage.setItem('lastVisitDate', today); // Save today's date in local storage
+                        localStorage.setItem('lastVisitDate', today);
                     })
                     .catch(error => console.error("Error updating visitor count:", error));
             } else {
-                // Already counted today, so just display the count without incrementing
                 fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
                     .then(response => response.json())
                     .then(data => {
@@ -42,18 +67,17 @@
             }
         }
 
-        // Display visitor count and message on button click
         function startJourney() {
             document.getElementById('loading-message').innerText = "Calculating the quickest route through NYC traffic... 🚖";
-
-            // Smooth transition to map page
             setTimeout(() => {
                 window.location.href = "map.html";
             }, 2000);
         }
 
-        // Run daily visitor check on page load
         checkDailyVisitor();
     </script>
+
+    <script src="assets/js/mapInteractions.js"></script>
+    <script src="assets/js/toggleSections.js"></script>
 </body>
 </html>
