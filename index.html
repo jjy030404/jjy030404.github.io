@@ -14,32 +14,31 @@
         <button onclick="startJourney()" class="start-button">Begin Journey</button>
     </div>
 
+    <!-- JSONP for CountAPI -->
     <script>
-        // Unique identifier for the button click count
-        const COUNT_API_KEY = "jjy030404_github_button_clicks"; // Use a unique identifier for your project
+        function cb(response) {
+            document.getElementById('visitor-count').innerText = `Total visits today: ${response.value}`;
+        }
 
-        // Function to increment the count on button click and display the updated count
+        // Make the request to CountAPI
+        <script async src="https://api.countapi.xyz/hit/jjy030404_github_button_clicks/visits?callback=cb"></script>
+    </script>
+
+    <script>
+        // Function to increment the count on button click and display updated count
         function startJourney() {
-            fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
+            fetch(`https://api.countapi.xyz/hit/jjy030404_github_button_clicks/visits`)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
                 })
                 .catch(error => console.error("Error updating click count:", error));
 
-            // Smooth transition to the next page after 2 seconds
+            // Smooth transition
             setTimeout(() => {
                 window.location.href = "map.html";
             }, 2000);
         }
-
-        // Display the current count when the page loads
-        fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('visitor-count').innerText = `Total clicks today: ${data.value}`;
-            })
-            .catch(error => console.error("Error fetching click count:", error));
     </script>
 </body>
 </html>
