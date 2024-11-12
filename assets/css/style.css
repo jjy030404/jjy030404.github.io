@@ -49,25 +49,21 @@ header {
     z-index: 1000;
 }
 
-nav a {
+nav a, .dropdown-toggle {
     color: #ffffff;
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
+    cursor: pointer;
 }
 
-nav a:hover {
+nav a:hover, .dropdown-toggle:hover {
     color: #bbbbbb;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-}
-
-.dropdown-toggle:hover + .dropdown-menu,
-.dropdown-menu:hover {
-    display: block;
 }
 
 .dropdown-menu {
@@ -80,6 +76,11 @@ nav a:hover {
     left: 0;
     min-width: 120px;
     z-index: 1001;
+}
+
+.dropdown-toggle:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
 }
 
 .dropdown-menu a {
