@@ -1,9 +1,8 @@
-function toggleSection(sectionId) {
-    document.getElementById('about').style.display = 'none';
-    document.getElementById('contact').style.display = 'none';
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.style.display = 'block';
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const target = document.querySelector(item.dataset.target);
+        if (target) {
+            target.classList.toggle('active');
+        }
+    });
+});
