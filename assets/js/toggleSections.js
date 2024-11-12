@@ -1,8 +1,10 @@
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const target = document.querySelector(item.dataset.target);
-        if (target) {
-            target.classList.toggle('active');
-        }
-    });
+const toggle = document.querySelector('.toggle');
+const dropdown = document.querySelector('.dropdown');
+
+toggle.addEventListener('mouseenter', () => {
+    dropdown.style.display = 'block';
+});
+
+toggle.addEventListener('mouseleave', () => {
+    dropdown.style.display = 'none';
 });
