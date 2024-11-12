@@ -1,21 +1,15 @@
-function updateVisitCount() {
-    const today = new Date().toDateString(); // Get today’s date as a string
-    const lastVisitDate = localStorage.getItem('lastVisitDate');
-    let visitCount = parseInt(localStorage.getItem('visitCount')) || 0;
+const COUNT_API_KEY = "jjy030404_github_button_clicks";
 
-    if (lastVisitDate !== today) {
-        // Reset the count if it's a new day
-        visitCount = 0;
-        localStorage.setItem('lastVisitDate', today);
-    }
+fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
+    })
+    .catch(error => console.error("Error updating click count:", error));
 
-    // Increment visit count and store it
-    visitCount++;
-    localStorage.setItem('visitCount', visitCount);
-
-    // Display the visit count
-    document.getElementById('visitor-count').innerText = `Today's visit number: ${visitCount}`;
-}
-
-// Call the function to update and display the visit count
-updateVisitCount();
+fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('visitor-count').innerText = `Total clicks today: ${data.value}`;
+    })
+    .catch(error => console.error("Error fetching click count:", error));
