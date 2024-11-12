@@ -1,68 +1,30 @@
-/* 기본 스타일 설정 */
-body {
-    font-family: 'Helvetica', sans-serif;
-    background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0);
-    color: #333;
-    text-align: center;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-}
-
-header {
-    background-color: #111;
-    padding: 20px;
-    color: #fff;
-    width: 100%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
 .title {
     font-size: 2.8em;
     font-weight: bold;
     letter-spacing: 2px;
-    animation: fadeInTitle 1s ease-in-out;
 }
 
-/* 컨텐츠 스타일 */
-.media-container {
+.animate-title {
+    animation: zoomIn 0.8s ease forwards;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.info-button {
     margin-top: 30px;
-    animation: fadeIn 1.5s ease-in-out;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.avenue-image {
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.avenue-image:hover {
-    transform: scale(1.05);
-}
-
-/* 설명 스타일 */
-.description {
-    margin-top: 25px;
-    font-size: 1.2em;
-    color: #222;
-    max-width: 700px;
-    padding: 0 20px;
-    line-height: 1.6;
-    animation: fadeIn 1.8s ease-in-out;
-}
-
-/* 애니메이션 */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInTitle {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
+.info-button:hover {
+    background-color: #666;
 }
