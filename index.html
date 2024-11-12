@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <header>
+    <!-- Intro Page Container -->
+    <div class="opening-container">
+        <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
+        <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
+        <p id="visitor-count"></p> <!-- Display visitor count -->
+        <button onclick="startJourney()" class="start-button">Begin Journey</button>
+    </div>
+
+    <!-- Map Page Content (initially hidden) -->
+    <header id="main-header" style="display: none;">
         <nav>
             <div class="dropdown">
                 <a href="#entry" class="dropdown-toggle">Entry</a>
@@ -30,8 +39,9 @@
         </nav>
     </header>
 
-    <div id="map"></div>
+    <div id="map" style="display: none;"></div>
 
+    <!-- About and Contact Sections (initially hidden) -->
     <section id="about" style="display: none;">
         <h2>About this Website</h2>
         <p>This website is all about bringing NYC’s streets alive, giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
@@ -43,9 +53,56 @@
         <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
     </section>
 
-    <!-- Load Leaflet JavaScript first -->
+    <!-- Load Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="assets/js/mapInteractions.js"></script>
-    <script src="assets/js/toggleSections.js"></script>
+
+    <!-- Visitor tracking and interaction scripts -->
+    <script>
+        const COUNT_API_KEY = "jjy030404_github_daily_visitors";
+
+        function checkDailyVisitor() {
+            const today = new Date().toDateString();
+            const lastVisit = localStorage.getItem('lastVisitDate');
+
+            if (lastVisit !== today) {
+                fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
+                        localStorage.setItem('lastVisitDate', today);
+                    })
+                    .catch(error => console.error("Error updating visitor count:", error));
+            } else {
+                fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitor-count').innerText = `Total visitors today: ${data.value}`;
+                    })
+                    .catch(error => console.error("Error fetching visitor count:", error));
+            }
+        }
+
+        function startJourney() {
+            document.getElementById('loading-message').innerText = "Calculating the quickest route through NYC traffic... 🚖";
+            setTimeout(() => {
+                document.querySelector('.opening-container').style.display = 'none';
+                document.getElementById('main-header').style.display = 'block';
+                document.getElementById('map').style.display = 'block';
+                initializeMap();
+            }, 2000);
+        }
+
+        function initializeMap() {
+            const map = L.map('map').setView([40.7831, -73.9712], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            checkDailyVisitor();
+        });
+    </script>
 </body>
 </html>
