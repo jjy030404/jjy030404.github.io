@@ -10,13 +10,40 @@
 <body>
     <header>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#">Entry</a>
+                <div class="dropdown-menu">
+                    <a href="3rd_ave.html">3rd Ave</a>
+                    <a href="5th_ave.html">5th Ave</a>
+                    <a href="7th_ave.html">7th Ave</a>
+                    <a href="8th_ave.html">8th Ave</a>
+                    <a href="24th_street.html">24th St</a>
+                    <a href="lexington_ave.html">Lexington Ave</a>
+                    <a href="canal_street.html">Canal St</a>
+                    <a href="broadway.html">Broadway</a>
+                    <a href="madison_ave.html">Madison Ave</a>
+                    <a href="park_ave.html">Park Ave</a>
+                </div>
+            </div>
+            <a href="#" onclick="toggleSection('about')">About this Website</a>
+            <a href="#" onclick="toggleSection('contact')">Contact Me</a>
         </nav>
     </header>
+
     <div id="map"></div>
 
+    <section id="about" style="display: none;">
+        <h2>About this Website</h2>
+        <p>This website is all about bringing NYC’s streets alive, giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
+    </section>
+
+    <section id="contact" style="display: none;">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:jjy030404@gmail.com">jjy030404@gmail.com</a></p>
+        <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
+    </section>
+
+    <script src="assets/js/toggleSection.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="assets/js/mapInteractions.js"></script>
 </body>
