@@ -19,7 +19,7 @@ function updateVisitorCount() {
             })
             .catch(error => {
                 console.error("Error fetching visitor count: ", error);
-                document.getElementById('visitor-count').innerText = "Visitor count is unavailable at the moment.";
+                document.getElementById('visitor-count').innerText = "Visitor count is unavailable at the moment ㅠㅠ ";
             });
     } else {
         visitorCount = parseInt(visitorCount) + 1;
