@@ -1,10 +1,10 @@
-const toggle = document.querySelector('.toggle');
-const dropdown = document.querySelector('.dropdown');
+function toggleSection(sectionId) {
+    document.getElementById('about').style.display = 'none';
+    document.getElementById('contact').style.display = 'none';
 
-toggle.addEventListener('mouseenter', () => {
-    dropdown.style.display = 'block';
-});
-
-toggle.addEventListener('mouseleave', () => {
-    dropdown.style.display = 'none';
-});
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = 'block';
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
