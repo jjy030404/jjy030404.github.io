@@ -15,30 +15,45 @@
     </div>
 
     <script>
-        const COUNT_API_KEY = "jjy030404_github_button_clicks"; // Unique identifier
+        const COUNT_API_KEY = "jjy030404_github_daily_visitors"; // Unique identifier for daily visitors
 
-        // Function to increment count on button click and display updated count
+        // Function to check if the user has been counted today
+        function checkDailyVisitor() {
+            const today = new Date().toDateString(); // Get today's date as a string
+            const lastVisit = localStorage.getItem('lastVisitDate');
+
+            if (lastVisit !== today) {
+                // First visit today, so increment the count
+                fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
+                        localStorage.setItem('lastVisitDate', today); // Save today's date in local storage
+                    })
+                    .catch(error => console.error("Error updating visitor count:", error));
+            } else {
+                // Already counted today, so just display the count without incrementing
+                fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visitor-count').innerText = `Total visitors today: ${data.value}`;
+                    })
+                    .catch(error => console.error("Error fetching visitor count:", error));
+            }
+        }
+
+        // Display visitor count and message on button click
         function startJourney() {
-            fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
-                })
-                .catch(error => console.error("Error updating click count:", error));
+            document.getElementById('loading-message').innerText = "Calculating the quickest route through NYC traffic... 🚖";
 
-            // Smooth transition
+            // Smooth transition to map page
             setTimeout(() => {
                 window.location.href = "map.html";
             }, 2000);
         }
 
-        // Display current count on page load
-        fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('visitor-count').innerText = `Total clicks today: ${data.value}`;
-            })
-            .catch(error => console.error("Error fetching click count:", error));
+        // Run daily visitor check on page load
+        checkDailyVisitor();
     </script>
 </body>
 </html>
