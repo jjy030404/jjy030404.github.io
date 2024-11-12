@@ -1,22 +1,73 @@
+/* 페이지 기본 스타일 */
 body {
-    font-family: 'Verdana', sans-serif;
-    background-color: #f5f5f5;
-    color: #4b0082;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #c9d6df);
+    color: #333;
     text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 header {
-    background-color: #4b0082;
-    padding: 20px;
+    background-color: #333;
     color: #fff;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.media-container {
-    margin-top: 20px;
+.title {
+    font-size: 2.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* 슬라이드 컨테이너 스타일 */
+.slideshow-container {
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    transition: transform 0.5s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+#spiderman {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_Peter_Parker.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 1s ease, top 1s ease, left 1s ease;
+    pointer-events: none;
 }
 
 .description {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #4b0082;
+    margin-top: 25px;
+    font-size: 1.2em;
+    color: #222;
+    max-width: 700px;
+    padding: 0 20px;
+    line-height: 1.6;
+    animation: fadeIn 1.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
