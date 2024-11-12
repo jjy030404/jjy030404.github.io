@@ -1,70 +1,130 @@
-/* Basic Styling for the Website */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-#intro-container {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.opening-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
-    padding: 50px;
+    background: linear-gradient(135deg, #e0e0e0, #f4f4f9);
+}
+
+#main-title {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #555;
+    border: none;
+    cursor: pointer;
 }
 
 #visitor-count {
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #555;
 }
 
-nav {
-    background-color: #333;
+header {
+    background-color: #222;
     padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
+    margin: 0 15px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1.2em;
 }
 
-nav .toggle {
+nav a:hover {
+    color: #bbbbbb;
+}
+
+.dropdown {
     position: relative;
+    display: inline-block;
 }
 
-nav .dropdown {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background-color: #444;
-    padding: 10px;
-    width: 200px;
-    border-radius: 5px;
-}
-
-nav .toggle:hover .dropdown {
+.dropdown-toggle:hover + .dropdown-menu,
+.dropdown-menu:hover {
     display: block;
 }
 
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    top: 100%;
+    left: 0;
+    min-width: 120px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    color: #ffffff;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+}
+
 #map {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.content {
+section {
     padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
 }
 
-h1 {
-    text-align: center;
+#about, #contact {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about h2, #contact h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+#about p, #contact p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.leaflet-popup-content-wrapper {
+    font-size: 1.1em;
+    max-width: 300px;
 }
