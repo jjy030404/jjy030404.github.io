@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC: Stop and being everyone's obstacle</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -42,41 +43,8 @@
         <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
     </section>
 
-    <script>
-        const COUNT_API_KEY = "jjy030404_github_daily_visitors";
-
-        function checkDailyVisitor() {
-            const today = new Date().toDateString();
-            const lastVisit = localStorage.getItem('lastVisitDate');
-
-            if (lastVisit !== today) {
-                fetch(`https://api.countapi.xyz/hit/${COUNT_API_KEY}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('visitor-count').innerText = `You are visitor number ${data.value} today.`;
-                        localStorage.setItem('lastVisitDate', today);
-                    })
-                    .catch(error => console.error("Error updating visitor count:", error));
-            } else {
-                fetch(`https://api.countapi.xyz/get/${COUNT_API_KEY}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('visitor-count').innerText = `Total visitors today: ${data.value}`;
-                    })
-                    .catch(error => console.error("Error fetching visitor count:", error));
-            }
-        }
-
-        function startJourney() {
-            document.getElementById('loading-message').innerText = "Calculating the quickest route through NYC traffic... 🚖";
-            setTimeout(() => {
-                window.location.href = "map.html";
-            }, 2000);
-        }
-
-        checkDailyVisitor();
-    </script>
-
+    <!-- Load Leaflet JavaScript first -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="assets/js/mapInteractions.js"></script>
     <script src="assets/js/toggleSections.js"></script>
 </body>
