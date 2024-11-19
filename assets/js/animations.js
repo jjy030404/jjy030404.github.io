@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 window.location.href = "map.html";
-            }, 2000);
+            }, 5000); 
         });
-    } else {
-        console.error("Required elements not found for animations.js");
     }
 });
