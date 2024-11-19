@@ -57,6 +57,9 @@ document.getElementById('captchaVerifyBtn').addEventListener('click', () => {
   if (correctAnswers.length === 2 && selectedImages.length === 2) {
     result.textContent = "Congrats, you're a true New Yorker! 🌆";
     result.style.color = 'green';
+    setTimeout(() => {
+      window.location.href = "index.html"; 
+    }, 5000); 
   } else {
     result.textContent = "Hmm, are you sure you're from New York? 🤔 Try again!";
     result.style.color = 'red';
