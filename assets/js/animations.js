@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loadingMessage && button) {
         button.addEventListener('click', () => {
-            loadingMessage.innerText = "Your journey through NYC begins... 🚕";
+            loadingMessage.innerText = "Calculating the quickest route through NYC traffic... 🚖";
 
             setTimeout(() => {
                 window.location.href = "map.html";
