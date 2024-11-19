@@ -25,7 +25,10 @@ function renderImages() {
     const imageDiv = document.createElement('div');
     imageDiv.classList.add('captcha-image');
     imageDiv.setAttribute('data-answer', image.answer);
-    imageDiv.innerHTML = `<img src="${image.src}" alt="Captcha Image">`;
+    const imgTag = document.createElement('img');
+    imgTag.src = image.src;
+    imgTag.alt = "Captcha Image";
+    imageDiv.appendChild(imgTag);
     imageGrid.appendChild(imageDiv);
   });
 
@@ -50,7 +53,7 @@ document.getElementById('captchaVerifyBtn').addEventListener('click', () => {
   const selectedImages = document.querySelectorAll('.captcha-image.selected');
   const correctAnswers = [...selectedImages].filter(img => img.dataset.answer === 'correct');
   const result = document.getElementById('captchaResult');
-  
+
   if (correctAnswers.length === 2 && selectedImages.length === 2) {
     result.textContent = "Congrats, you're a true New Yorker! 🌆";
     result.style.color = 'green';
@@ -58,8 +61,4 @@ document.getElementById('captchaVerifyBtn').addEventListener('click', () => {
     result.textContent = "Hmm, are you sure you're from New York? 🤔 Try again!";
     result.style.color = 'red';
   }
-
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 5000);
 });
