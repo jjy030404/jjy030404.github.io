@@ -11,10 +11,16 @@
         <h1 id="main-title" class="hover-shadow">NYC: Stop and being everyone's obstacle</h1>
         <p id="loading-message">Finding a taxi, dodging pigeons, and loading New York...</p>
         <p id="visitor-count"></p>
-        <button onclick="startJourney()" class="start-button">Begin Journey</button>
+        <button id="start-journey" class="start-button">Begin Journey</button>
     </div>
 
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/visitorCount.js"></script>
+    <script src="assets/js/intro-timer.js"></script>
+    <script>
+        document.getElementById('start-journey').addEventListener('click', () => {
+            window.location.href = 'map.html';
+        });
+    </script>
 </body>
 </html>
