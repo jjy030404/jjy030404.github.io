@@ -26,10 +26,10 @@ const customIcon = L.icon({
 });
 
 const bounds = [];
-const offsetValues = [[0, 0], [0.0001, 0.0001], [-0.0001, -0.0001], [0.0002, 0], [0, -0.0002]]; // 오프셋 값
+const offsetValues = [[0, 0], [0.0001, 0.0001], [-0.0001, -0.0001], [0.0002, 0], [0, -0.0002]]; 
 
 locations.forEach((location, index) => {
-    const offset = offsetValues[index % offsetValues.length]; // 핀을 순차적으로 오프셋
+    const offset = offsetValues[index % offsetValues.length]; 
     const adjustedCoords = [location.coords[0] + offset[0], location.coords[1] + offset[1]];
     
     const marker = L.marker(adjustedCoords, { icon: customIcon }).addTo(map);
