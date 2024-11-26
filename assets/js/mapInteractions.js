@@ -20,17 +20,21 @@ const locations = [
 
 const customIcon = L.icon({
     iconUrl: 'https://jjy030404.github.io/marker-icon-2x-red.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34]
+    iconSize: [30, 50],
+    iconAnchor: [15, 50],
+    popupAnchor: [0, -45]
 });
 
 const bounds = [];
+const offsetValues = [[0, 0], [0.0001, 0.0001], [-0.0001, -0.0001], [0.0002, 0], [0, -0.0002]]; // 오프셋 값
 
-locations.forEach(location => {
-    const marker = L.marker(location.coords, { icon: customIcon }).addTo(map);
-    marker.bindPopup(`<b>${location.name}</b><br>${location.description}<br><a href="${location.link}" target="_blank">Learn more</a>`, { maxWidth: 300 });
-    bounds.push(location.coords);
+locations.forEach((location, index) => {
+    const offset = offsetValues[index % offsetValues.length]; // 핀을 순차적으로 오프셋
+    const adjustedCoords = [location.coords[0] + offset[0], location.coords[1] + offset[1]];
+    
+    const marker = L.marker(adjustedCoords, { icon: customIcon }).addTo(map);
+    marker.bindPopup(`<b>${location.name}</b><br>${location.description}<br><a href="${location.link}" target="_blank" style="color: #00b4d8;">Learn more</a>`, { maxWidth: 350 });
+    bounds.push(adjustedCoords);
 });
 
-map.fitBounds(bounds, { padding: [50, 50] });
+map.fitBounds(bounds, { padding: [70, 70] });
