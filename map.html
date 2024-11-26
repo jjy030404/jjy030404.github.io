@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <header>
+    <header class="map-header">
+        <h1>Explore NYC Streets</h1>
         <nav>
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#">Entry</a>
@@ -19,7 +20,7 @@
                     <a href="8th_ave.html">8th Ave</a>
                     <a href="24th_street.html">24th St</a>
                     <a href="lexington_ave.html">Lexington Ave</a>
-                    <a href="canal_street.html">Canal St</a>
+                    <a href="10th_ave.html">10th Ave</a>
                     <a href="broadway.html">Broadway</a>
                     <a href="madison_ave.html">Madison Ave</a>
                     <a href="park_ave.html">Park Ave</a>
@@ -32,9 +33,14 @@
 
     <div id="map"></div>
 
+    <div class="map-instructions">
+        <p>Click on the map markers to explore NYC streets!</p>
+        <p>Drag and zoom the map to discover more areas.</p>
+    </div>
+
     <section id="about" style="display: none;">
         <h2>About this Website</h2>
-<p>This website is your ultimate guide to navigating the streets of New York City—virtually and humorously! From the bustling avenues to the quieter streets, we’ve crafted an interactive map that highlights the fun, chaos, and unique quirks of each location. Why walk on the streets when you can explore them right here? With detailed descriptions and a touch of humor, you'll discover what makes each street unique, bringing NYC’s streets alive and giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
+        <p>This website is your ultimate guide to navigating the streets of New York City—virtually and humorously! From the bustling avenues to the quieter streets, we’ve crafted an interactive map that highlights the fun, chaos, and unique quirks of each location. Why walk on the streets when you can explore them right here? With detailed descriptions and a touch of humor, you'll discover what makes each street unique, bringing NYC’s streets alive and giving each its own personality. We designed it for you to feel the New York vibe right from your screen—without getting in anyone’s way! 😉</p>
     </section>
 
     <section id="contact" style="display: none;">
@@ -43,6 +49,10 @@
         <p>Email: <a href="mailto:jjy030404@gmail.com">jjy030404@gmail.com</a></p>
         <p>Phone: <a href="tel:+13013465058">301-346-5058</a></p>
     </section>
+
+    <footer class="map-footer">
+        <p>Designed for Urban Explorers | NYC Map 2024</p>
+    </footer>
 
     <script src="assets/js/toggleSections.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
