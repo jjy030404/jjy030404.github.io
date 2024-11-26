@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     color: #333;
+    transition: transform 0.2s ease; /* 기울기 효과 */
 }
 
 header {
@@ -68,30 +69,4 @@ header {
 
 .slider-controls button:hover {
     background: rgba(0, 0, 0, 0.8);
-}
-
-.description {
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    max-width: 800px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.more-info {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.more-info:hover {
-    background-color: #0056b3;
 }
