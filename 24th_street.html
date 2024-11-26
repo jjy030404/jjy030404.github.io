@@ -13,14 +13,34 @@
     
     <main>
         <div class="media-container">
-            <video controls wideth="600">
-            <source src="24th st vid(1).mp4" type= "video/mp4" alt="24th Street Video" width="600" height="400">
-            </video>
+            <div class="video-wrapper">
+                <video id="main-video" controls width="600" height="400">
+                    <source src="https://jjy030404.github.io/24th%20st%20vid%20(1).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">🎬 Click to Play 🎬</div>
+            </div>
         </div>
 
         <div class="description">
-            24th Street is a well-known street in Manhattan, running east-west through some vibrant neighborhoods. This video captures the daily hustle and bustle on 24th St.
+            24th Street isn’t just a street; it’s a snapshot of NYC’s daily grind.  
+            From its quiet corners to its bustling intersections, the charm of this street lies in its unpredictability.  
+            <br><br>
+            Explore the everyday stories of locals and visitors captured on this lively stretch of Manhattan!
         </div>
+
+        <div class="image-gallery">
+            <img src="https://jjy030404.github.io/24th_street_(1)" alt="24th Street Photo 1" class="gallery-image active">
+            <img src="https://jjy030404.github.io/24th_street_(2)" alt="24th Street Photo 2" class="gallery-image">
+            <img src="https://jjy030404.github.io/24th_street_(3)" alt="24th Street Photo 3" class="gallery-image">
+        </div>
+        <div class="gallery-controls">
+            <button id="prev-gallery">❮</button>
+            <button id="next-gallery">❯</button>
+        </div>
+
+        <button class="more-info" onclick="window.location.href='https://en.wikipedia.org/wiki/24th_Street_(Manhattan)'">More Info</button>
     </main>
+    <script src="24th_street.js"></script>
 </body>
 </html>
