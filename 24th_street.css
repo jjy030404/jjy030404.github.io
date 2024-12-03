@@ -47,12 +47,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 2;
 }
 
 .video-wrapper:hover .video-overlay {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .description {
@@ -62,33 +64,30 @@ header {
     border-radius: 10px;
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .image-gallery {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin: 20px 0;
 }
 
 .gallery-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s ease, transform 0.2s ease;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.gallery-image.active {
+.gallery-image.active,
+.gallery-image:hover {
     opacity: 1;
     transform: scale(1.1);
-    border: 2px solid #007BFF;
-}
-
-.gallery-image:hover {
-    opacity: 0.9;
 }
 
 .gallery-controls {
@@ -111,19 +110,21 @@ header {
     background: #0056b3;
 }
 
-.more-info {
+.back-to-map {
     display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 1rem;
+    margin: 30px auto;
+    padding: 15px 25px;
+    font-size: 1.2rem;
     background-color: #007BFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.more-info:hover {
+.back-to-map:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
 }
