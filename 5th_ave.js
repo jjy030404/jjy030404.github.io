@@ -1,24 +1,30 @@
-let currentImage = 0;
-const images = document.querySelectorAll('.gallery-image');
+document.addEventListener("DOMContentLoaded", () => {
+    let currentImage = 0;
+    const images = document.querySelectorAll('.gallery-image');
 
-function showNextImage() {
-    images[currentImage].classList.remove('active');
-    currentImage = (currentImage + 1) % images.length;
-    images[currentImage].classList.add('active');
-}
+    function showNextImage() {
+        images[currentImage].classList.remove('active');
+        currentImage = (currentImage + 1) % images.length;
+        images[currentImage].classList.add('active');
+    }
 
-setInterval(showNextImage, 5000);
+    setInterval(showNextImage, 5000);
 
-const button = document.getElementById("runaway-button");
-let runawayCount = 0;
+    const button = document.getElementById("runaway-button");
+    if (button) {
+        let runawayCount = 0;
 
-button.addEventListener("mouseover", () => {
-    if (runawayCount < 3) {
-        const x = Math.random() * (window.innerWidth - button.offsetWidth);
-        const y = Math.random() * (window.innerHeight - button.offsetHeight);
-        button.style.position = "absolute";
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
-        runawayCount++;
+        button.addEventListener("mouseover", () => {
+            if (runawayCount < 3) {
+                const x = Math.random() * (window.innerWidth - button.offsetWidth);
+                const y = Math.random() * (window.innerHeight - button.offsetHeight);
+                button.style.position = "absolute";
+                button.style.left = `${x}px`;
+                button.style.top = `${y}px`;
+                runawayCount++;
+            }
+        });
+    } else {
+        console.error("Button with id 'runaway-button' not found.");
     }
 });
