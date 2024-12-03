@@ -1,16 +1,18 @@
+/* 전체 레이아웃 스타일 */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #f4f4f4, #eaeaea);
+    background: linear-gradient(to bottom, #f0f8ff, #e6f7ff);
     color: #333;
     text-align: center;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 header {
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    background: linear-gradient(to right, #003366, #4ca1af);
     padding: 20px;
     color: #fff;
     width: 100%;
@@ -23,12 +25,12 @@ header {
     letter-spacing: 2px;
 }
 
+/* 스파이더맨 컨테이너 스타일 */
 #spiderman-container {
     margin: 30px auto;
     position: relative;
     width: 120px;
     height: 120px;
-    animation: spidermanMove 3s infinite;
     cursor: pointer;
 }
 
@@ -38,49 +40,89 @@ header {
     animation: spidermanScale 1s infinite;
 }
 
-#video-container {
+/* 비디오 컨테이너 */
+.video-container {
     margin-top: 30px;
     width: 80%;
     max-width: 600px;
+    display: none;
 }
 
-#video-player {
+.video-player {
     width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* 슬라이드 갤러리 */
+.gallery {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    margin: 20px auto;
+}
+
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 설명 텍스트 */
 .description {
     margin: 30px auto;
     font-size: 1.2em;
     max-width: 700px;
     line-height: 1.6;
+    color: #333;
 }
 
-.back-to-map {
+/* 안내 문구 스타일 */
+.spiderman-instructions {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #555;
+    font-style: italic;
+}
+
+/* 버튼 스타일 */
+.info-button, .back-to-map {
+    display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
-    background-color: #4ca1af;
+    background-color: #003366;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.back-to-map:hover {
-    background-color: #76c1c7;
+.info-button:hover, .back-to-map:hover {
+    background-color: #005999;
     transform: scale(1.05);
 }
 
-@keyframes spidermanMove {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
+/* 애니메이션 */
 @keyframes spidermanScale {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
