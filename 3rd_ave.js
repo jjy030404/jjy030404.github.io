@@ -1,23 +1,29 @@
-const galleryImages = document.querySelectorAll('.gallery-image');
-let currentImage = 0;
+const sliderBall = document.querySelector('.slider-ball');
+const body = document.body;
+let isDragging = false;
 
-// 갤러리 이미지 전환
-function showImage(index) {
-    galleryImages.forEach((image, i) => {
-        image.classList.remove('active');
-        if (i === index) {
-            image.classList.add('active');
-        }
-    });
-}
 
-// 이미지 클릭으로 갤러리 탐색
-galleryImages.forEach((image, index) => {
-    image.addEventListener('click', () => {
-        currentImage = index;
-        showImage(currentImage);
-    });
+sliderBall.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault();
 });
 
-// 초기 이미지 설정
-showImage(currentImage);
+document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        const sliderContainer = document.querySelector('.slider-container');
+        const rect = sliderContainer.getBoundingClientRect();
+        let left = e.clientX - rect.left;
+
+    
+        left = Math.max(0, Math.min(left, rect.width));
+        sliderBall.style.left = `${left}px`;
+
+      
+        const tilt = ((left / rect.width) - 0.5) * 40; 
+        body.style.transform = `rotate(${tilt}deg)`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    if (isDragging) isDragging = false;
+});
