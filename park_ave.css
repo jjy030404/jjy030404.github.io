@@ -7,8 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
 }
 
 header {
@@ -28,11 +26,10 @@ header {
 
 .media-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin: 30px;
     width: 80%;
-    height: auto;
 }
 
 .gallery-image {
@@ -41,7 +38,6 @@ header {
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
 }
 
 .gallery-image:hover {
@@ -59,6 +55,31 @@ header {
 
 .audio-container {
     margin-top: 30px;
+    background-color: #fff;
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    cursor: pointer;
+}
+
+.audio-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(106, 176, 76, 0.5), transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.audio-container.clicked::after {
+    opacity: 1;
+    animation: ripple 0.5s ease;
 }
 
 .info-button, .back-to-map {
