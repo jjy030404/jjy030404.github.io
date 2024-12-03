@@ -51,8 +51,7 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: transform 1s ease, top 1s ease, left 1s ease;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 .description {
@@ -62,12 +61,11 @@ header {
     max-width: 700px;
     padding: 0 20px;
     line-height: 1.6;
-    animation: fadeIn 1.8s ease-in-out;
 }
 
-.info-button {
+.info-button, .back-to-map {
     display: inline-block;
-    margin-top: 20px;
+    margin: 20px 10px;
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
@@ -77,12 +75,7 @@ header {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.info-button:hover {
+.info-button:hover, .back-to-map:hover {
     background-color: #666;
     transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
 }
