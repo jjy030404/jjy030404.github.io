@@ -4,7 +4,7 @@ body {
     background: linear-gradient(to bottom, #020024, #090979, #00d4ff);
     color: #fff;
     text-align: center;
-    overflow: hidden;
+    overflow: auto;
     animation: backgroundPulse 4s infinite alternate;
 }
 
@@ -25,7 +25,7 @@ header {
     position: relative;
     margin: 20px auto;
     max-width: 800px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .image-gallery {
