@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 header {
@@ -28,10 +29,10 @@ header {
 .media-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 30px;
     margin: 30px;
     width: 80%;
-    height: 500px;
+    height: 600px;
 }
 
 .media {
